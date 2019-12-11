@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build">
+
+<!-- APPLICATION METADATA -->
+<property name="masysma.target" value="bruteforce3"/> 
+<property name="masysma.main"   value="BrouteForce3"/> 
+<property name="mdpc.name"      value="mdvl-bruteforce"/>
+<property name="mdpc.section"   value="admin"/>
+<property name="mdpc.arch"      value="all"/>
+<property name="mdpc.descrs"    value="Java-based CPU benchmark"/>
+<property name="mdpc.conflicts" value="mdvl-java-applications"/>
+<property name="mdpc.descrl">
+ The Ma_Sys.ma Brute Force application attempts to crack a given MD5 checksum
+ by trying all possible texts it could have originated from. For practically
+ performing this task, much better (i.e. faster) tools exist which can utilize
+ the GPU computation. Ma_Sys.ma Brute Force is rather intended to act as a
+ benchmark which runs platform independently and which attempts to give a
+ value for CPU performance that can be compared across machines.
+ Invoke a run on all CPU cores with:     bruteforce3            --benchmark
+ Invoke a run on a single CPU core with: bruteforce3_singlecore --benchmark
+</property>
+
+<property name="mdpc.file.install">
+bruteforce3 /usr/bin
+bruteforce3_singlecore /usr/bin
+bruteforce3.jar /usr/share/java
+</property>
+
+<target name="build" depends="jar"/>
+
+<!-- CI INTEGRATION -->
+<target name="package_triggered" depends="package">
+	<property name="masysma.ci.trigger" value="newver"/>
+</target>
+
+<!-- CONSTANT TPL IMPORT -->
+<property environment="env"/>
+<condition property="masysma.internal.includepath.rel" value="${env.MDVL_CI_PHOENIX_ROOT}" else=".."><isset property="env.MDVL_CI_PHOENIX_ROOT"/></condition>
+<property name="masysma.internal.includepath" location="${masysma.internal.includepath.rel}"/>
+<property name="masysma.internal.loadpath" value="${masysma.internal.includepath}/co-build/ant-build-template.xml"/>
+<condition property="masysma.internal.load" value="file://${masysma.internal.loadpath}" else="https://raw.githubusercontent.com/m7a/co-build/master/ant-build-template.xml"><resourceexists><file file="${masysma.internal.loadpath}"/></resourceexists></condition>
+<import><url url="${masysma.internal.load}"/></import>
+
+<fileset id="masysma.inccls" dir="latest" includes="*.class"/>
+
+</project>

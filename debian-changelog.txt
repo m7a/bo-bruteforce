@@ -1,0 +1,5 @@
+mdvl-bruteforce (1.0.0) stable; urgency=medium
+
+  * Package created with MDPC 2
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Wed, 11 Dec 2019 13:15:23 +0100

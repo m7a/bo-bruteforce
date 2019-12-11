@@ -1,0 +1,2 @@
+#!/bin/sh
+exec java -classpath /usr/share/java/bruteforce3.jar BrouteForce3SingleCore "$@"

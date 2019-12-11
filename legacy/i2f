@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ofile="$1"
+
+echo "i2f output" >> "$ofile";
+echo ------------ >> "$ofile";
+
+while test -f "$0";
+do
+	read input;
+	echo "I : $input" >> "$ofile";
+done;
