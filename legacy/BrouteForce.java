@@ -86,13 +86,13 @@ public class BrouteForce {
 					for(int i = 80; i > out2.length(); i--) {
 						out2buf.append(" ");
 					}
-					out2 = "\033[7m" + out2buf.toString() + "\033[0m";
-					StringBuffer out1buf = new StringBuffer();
-					for(int i = 0; i < out2.length(); i++) {
-						out1buf.append("\b");
-					}
-					out1buf.append(out2);
-					System.out.print(out1buf.toString());
+					out2 = "\r\033[7m" + out2buf.toString() + "\033[0m";
+					//StringBuffer out1buf = new StringBuffer();
+					//for(int i = 0; i < out2.length(); i++) {
+					//	out1buf.append("\b");
+					//}
+					//out1buf.append(out2);
+					System.out.print(out2);
 					foundSec = 0;
 					try {
 						sleep(1000);
