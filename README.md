@@ -7,7 +7,7 @@ keywords: ["bruteforce", "brouteforce", "benchmark"]
 date: 2019/12/11 13:18:01
 lang: de-DE
 x-masysma-repository: https://www.github.com/m7a/bo-bruteforce
-x-masysma-website: https://masysma.lima-city.de/32/bruteforce3.xhtml
+x-masysma-website: https://masysma.net/32/bruteforce3.xhtml
 x-masysma-owned: 1
 x-masysma-copyright: |
   Copyright (c) 2014, 2019 Ma_Sys.ma.
